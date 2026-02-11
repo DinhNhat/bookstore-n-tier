@@ -1,0 +1,78 @@
+@model DataLayer.EfClasses.PriceOffer
+
+@{
+    ViewData["Title"] = "Add Price Offer";
+}
+
+<h3>Add/change Book Promotion</h3>
+
+@if (@Model.PriceOfferId > 0)
+{
+    //going to delete the promotion
+    <form asp-controller="Admin" asp-action="ChangePromotion" method="post">
+        <!-- Input and Submit elements -->
+        <input name="BookId" type="hidden" value="@Model.BookId"/>
+        <input name="PriceOfferId" type="hidden" value="@Model.PriceOfferId"/>
+        <input name="PriceOfferId" type="hidden" value="@Model.NewPrice"/>
+        <input name="PriceOfferId" type="hidden" value="@Model.PromotionalText"/>
+        
+        <div class="form-group">
+            <div class="col-md-6">
+                <label>Book Title:</label> <span class="font-weight-bold">@ViewData["BookTitle"]</span>
+            </div>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="col-md-10">
+                <button class="btn btn-primary" type="submit">Remove promotion</button>
+            </div>
+        </div>
+
+    </form>
+}
+else
+{
+    <form asp-controller="Admin" asp-action="ChangePromotion" method="post">
+        <!-- Input and Submit elements -->
+        <input name="BookId" type="hidden" value="@Model.BookId"/>
+        <input name="PriceOfferId" type="hidden" value="@Model.PriceOfferId"/>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <label>Book Title:</label> <span class="font-weight-bold">@ViewData["BookTitle"]</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label>Org Price</label>
+            </div>
+            <div class="col-sm-2">
+                @ViewData["OrgPrice"]
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label>New Price</label>
+            </div>
+            <input asp-for="NewPrice" class="form-control col-sm-2"/>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-sm-2">
+                <label>Promotional Text</label>
+
+            </div>
+            <span asp-validation-for="PromotionalText" class="text-danger"></span>
+            <input asp-for="PromotionalText" class="form-control col-sm-10"/>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="col-md-10">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </div>
+
+    </form>
+}
