@@ -44,7 +44,7 @@
                 <div class="col-md-2 text-right">
                     <h6>
                         <strong>
-                            $@($"{lineItem.BookPrice:F}") <span class="text-muted">x</span>
+                            @($"{lineItem.BookPrice.ToString("c")}") <span class="text-muted"></span>
                         </strong>
                     </h6>
                 </div>
@@ -52,8 +52,7 @@
                     <span class="form-control input-md">@lineItem.NumBooks</span>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn btn-link btn-warning"
-                       href="@Url.Action("DeleteLineItem", new {lineNum = i})">
+                    <a class="btn btn-warning" href="@Url.Action("DeleteLineItem", new {lineNum = i})">
                         Remove
                     </a>
                 </div>
@@ -80,7 +79,9 @@
 
 
                 <div class="col-md-3">
-                    <h4 class="text-right">Total <strong>$@($"{Model.Sum(x => x.BookPrice * x.NumBooks):F}")</strong></h4>
+                    <h4 class="text-right">Total <strong>
+                        @($"{Model.Sum(x => x.BookPrice * x.NumBooks).ToString("c")}")
+                    </strong></h4>
                 </div>
                 <div class="col-md-2">
                     <button type="submit" class="btn btn-success btn-block">
