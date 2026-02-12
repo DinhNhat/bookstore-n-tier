@@ -76,7 +76,12 @@
 
 <environment names="Development">
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" 
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer" 
+            asp-fallback-src="~/lib/bootstrap/js/bootstrap.bundle.js" 
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
     <script src="~/js/loggingDisplay.js" asp-append-version="true"></script>
     <script src="~/js/bookList.js" asp-append-version="true"></script>
 </environment>
@@ -85,9 +90,12 @@
             asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
             asp-fallback-test="window.jQuery">
     </script>
-
-    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/5.2.3/js/bootstrap.bundle.min.js" 
-            asp-fallback-src="~/lib/bootstrap/js/bootstrap.bundle.min.js"
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" 
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer" 
+            asp-fallback-src="~/lib/bootstrap/js/bootstrap.bundle.js" 
             asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
     <script src="~/js/bundle.min.js" asp-append-version="true"></script>
 </environment>
